@@ -1,0 +1,126 @@
+﻿@model IEnumerable<Garbage.Common.DTO.ComplaintDTO>
+@*@model IEnumerable<NewProject.Models.Complaint>*@
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div class="card-header">
+    <strong class="card-title">Complaint Table</strong>
+</div>
+<div class="card-body">
+
+</div><div class="row">
+    <div class="col-sm-12">
+        <table id="bootstrap-data-table" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="bootstrap-data-table_info">
+            <thead>
+                <tr style="background-color:#d39e00">
+                    <th>
+
+                        UserID
+                    </th>
+                    <th>
+                        Address
+                    </th>
+                    <th>
+                        Contact
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                    <th>
+                        Entry Date
+                    </th>
+                    <th>
+                        Approval Date
+                    </th>
+
+
+                    @*<th>
+                            @Html.DisplayNameFor(model => model.garbage.garbage_id)
+                        </th>*@
+
+                    <th class="center-block">
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserName)
+
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Mobile_Number)
+                        </td>
+                        <td class="@item.Status">
+                            @Html.DisplayFor(modelItem => item.Status)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Entrydate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Completiondate)
+                        </td>
+                        @* <td>
+                                @Html.DisplayFor(modelItem => item.Created_by)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Created_time)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.updated_by)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.updated_time)
+                            </td>*@
+
+                        @*<td>
+                                @Html.DisplayFor(modelItem => item.garbage.garbage_id)
+                            </td>*@
+
+                        <td class="text-center">
+                            <a class='btn btn-info btn-xs' href="@Url.Action("Edit","Complaints", new { id = item.Complaint_Id })"><i class="fa fa-edit"></i><span class="glyphicon glyphicon-edit"></span> Approve</a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    .Approved {
+        color: forestgreen;
+    }
+
+    .pending {
+        color: deeppink;
+    }
+
+    .Pending {
+        color: deeppink;
+    }
+
+    .Rejected {
+        color: red;
+    }
+
+    .btn-xs {
+        border: 1px solid;
+        border-radius: 10px;
+    }
+</style>

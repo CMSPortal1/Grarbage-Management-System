@@ -1,0 +1,12 @@
+E:\NewProject\Garbage.EF\bin\Debug\Garbage.EF.dll.config
+E:\NewProject\Garbage.EF\bin\Debug\Garbage.EF.dll
+E:\NewProject\Garbage.EF\bin\Debug\Garbage.EF.pdb
+E:\NewProject\Garbage.EF\bin\Debug\EntityFramework.dll
+E:\NewProject\Garbage.EF\bin\Debug\EntityFramework.SqlServer.dll
+E:\NewProject\Garbage.EF\bin\Debug\EntityFramework.xml
+E:\NewProject\Garbage.EF\bin\Debug\EntityFramework.SqlServer.xml
+E:\NewProject\Garbage.EF\obj\Debug\Garbage.EF.csproj.CoreCompileInputs.cache
+E:\NewProject\Garbage.EF\obj\Debug\Garbage.EF.csproj.CopyComplete
+E:\NewProject\Garbage.EF\obj\Debug\Garbage.EF.dll
+E:\NewProject\Garbage.EF\obj\Debug\Garbage.EF.pdb
+E:\NewProject\Garbage.EF\obj\Debug\Garbage.EF.csprojAssemblyReference.cache

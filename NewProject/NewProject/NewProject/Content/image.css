@@ -1,0 +1,70 @@
+ input.hidden {
+            position: absolute;
+            left: -9999px;
+        }
+
+        #profile-image1 {
+            border-radius: 50% !important;
+            border: 1px;
+           width:100px;
+           height:100px;
+            max-width: 90px;
+        }
+
+        .tital {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .bot-border {
+            border-bottom: 1px #f8f8f8 solid;
+            margin: 5px 0 5px 0
+        }
+
+        .col-sm-7 col-xs-6 {
+            color: forestgreen;
+        }
+
+
+        .img-circle {
+            border-radius: 50% !important;
+            box-sizing: border-box;
+            max-width: 90px;
+            width: 100px;
+            height: 100px;
+        }
+.rightside {
+    float: right;
+    position: absolute;
+    left: 222px;
+    position: relative;
+    height: 75px;
+    width: 100%;
+    border-top: 40px ridge #272c33c7;
+    padding-top: 10px;
+}
+
+    .rightside:after {
+        position: absolute;
+        content: '';
+        top: 0px;
+        height: 8px;
+        width: 100%;
+        background-size: 12px 12px;
+        background-position: -5px -3px;
+        background-image: -webkit-radial-gradient(50% 0%, circle, #bd2130 50%, transparent 55%);
+        background-image: -moz-radial-gradient(50% 0%, circle, #bd2130 50%, transparent 55%);
+        background-image: radial-gradient(circle at 50% 0%, #198b11 50%, transparent 55%);
+    }
+
+.name {
+    text-transform: capitalize;
+}
+
+.col-sm-5 {
+    font-weight: bold;
+}
+
+.bot-border {
+    border-color: green;
+}

@@ -1,0 +1,107 @@
+﻿@model NewProject.Models.Complaint
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Complaint</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Address_fk_user_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address_fk_user_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Entrydate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Entrydate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Completiondate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Completiondate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Created_by)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Created_by)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Created_time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Created_time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.updated_by)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.updated_by)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.updated_time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.updated_time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mobile_fk_user)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mobile_fk_user)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.garbage.garbage_type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.garbage.garbage_type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.signup.username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.signup.username)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Complaint_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

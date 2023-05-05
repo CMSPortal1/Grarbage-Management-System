@@ -1,0 +1,83 @@
+﻿@model NewProject.Models.garbage
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>garbage</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.garbage_type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.garbage_type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hygiene_level)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hygiene_level)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.created_by)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.created_by)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.updated_by)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.updated_by)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.created_on)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.created_on)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.updated_on)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.updated_on)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.signup.username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.signup.username)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.garbage_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

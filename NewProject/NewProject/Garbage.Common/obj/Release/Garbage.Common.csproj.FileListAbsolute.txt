@@ -1,0 +1,9 @@
+E:\NewProject\Garbage.Common\bin\Release\Garbage.Common.dll
+E:\NewProject\Garbage.Common\bin\Release\Garbage.Common.pdb
+E:\NewProject\Garbage.Common\bin\Release\Newtonsoft.Json.dll
+E:\NewProject\Garbage.Common\bin\Release\Newtonsoft.Json.xml
+E:\NewProject\Garbage.Common\obj\Release\Garbage.Common.csprojAssemblyReference.cache
+E:\NewProject\Garbage.Common\obj\Release\Garbage.Common.csproj.CoreCompileInputs.cache
+E:\NewProject\Garbage.Common\obj\Release\Garbage.Common.csproj.CopyComplete
+E:\NewProject\Garbage.Common\obj\Release\Garbage.Common.dll
+E:\NewProject\Garbage.Common\obj\Release\Garbage.Common.pdb

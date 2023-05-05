@@ -1,0 +1,131 @@
+﻿@*@model IEnumerable<NewProject.Models.signup>*@
+@model IEnumerable<Garbage.Common.DTO.UserDTO>
+
+@{
+    ViewBag.Title = "AllUsers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>All Users</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<div class="card-header">
+    <strong class="card-title">User Table</strong>
+</div>
+<div class="card-body">
+
+</div><div class="row">
+    <div class="col-sm-12">
+        <table id="bootstrap-data-table" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="bootstrap-data-table_info">
+            <thead>
+                <tr>
+                    @*<th>
+                            @Html.DisplayNameFor(model=> model.image)
+                        </th>*@
+                    <th>
+                        @Html.DisplayNameFor(model => model.username)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FatherName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.password)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.address)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.phone_no)
+                    </th>
+                    @*  <th>
+                            @Html.DisplayNameFor(model => model.gender)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.created_by)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.updated_by)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.created_on)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.updated_on)
+                        </th>*@
+                    @*<th>
+                            @Html.DisplayNameFor(model => model.area.area1)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.city.city1)
+                        </th>*@
+                    @*<th>
+                        @Html.DisplayNameFor(model => model.role.Title)
+                    </th>*@
+                   <th>
+                       Action
+                   </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    @*<td>
+            <img src="@Url.Content(@item.image)" width="150" height="100" />
+        </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.username)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FatherName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.password)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.phone_no)
+                    </td>
+                    @*<td>
+            @Html.DisplayFor(modelItem => item.gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.created_by)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.updated_by)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.created_on)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.updated_on)
+        </td>*@
+                    @*<td>
+            @Html.DisplayFor(modelItem => item.area.area1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.city.city1)
+        </td>*@
+                    <td class="text-center">
+                        <a class='btn btn-info btn-xs' href="@Url.Action("Edit","Complaints", new { id = item.Signup_ID })"><i class="fa fa-edit"></i><span class="glyphicon glyphicon-edit"></span> Details</a>
+
+                    </td>
+                </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+</div>

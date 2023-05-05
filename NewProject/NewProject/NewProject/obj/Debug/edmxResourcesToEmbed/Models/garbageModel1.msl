@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="smart_garbage_management_systemEntities">
+    <EntitySetMapping Name="add_Garbages">
+      <EntityTypeMapping TypeName="Model.add_Garbage">
+        <MappingFragment StoreEntitySet="add Garbage">
+          <ScalarProperty Name="Created_on" ColumnName="Created_on" />
+          <ScalarProperty Name="Updated_On" ColumnName="Updated_On" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+          <ScalarProperty Name="G_Type" ColumnName="G_Type" />
+          <ScalarProperty Name="G_id" ColumnName="G_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AddVehicles">
+      <EntityTypeMapping TypeName="Model.AddVehicle">
+        <MappingFragment StoreEntitySet="AddVehicle">
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="updatedby" ColumnName="updatedby" />
+          <ScalarProperty Name="createdby" ColumnName="createdby" />
+          <ScalarProperty Name="updatedtime" ColumnName="updatedtime" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Vehicle" ColumnName="Vehicle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="areas">
+      <EntityTypeMapping TypeName="Model.area">
+        <MappingFragment StoreEntitySet="area">
+          <ScalarProperty Name="cityid" ColumnName="cityid" />
+          <ScalarProperty Name="updated_by" ColumnName="updated_by" />
+          <ScalarProperty Name="updated_time" ColumnName="updated_time" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="created_on" ColumnName="created_on" />
+          <ScalarProperty Name="area1" ColumnName="area" />
+          <ScalarProperty Name="Area_id" ColumnName="Area_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cities">
+      <EntityTypeMapping TypeName="Model.city">
+        <MappingFragment StoreEntitySet="city">
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="updated_by" ColumnName="updated_by" />
+          <ScalarProperty Name="created_on" ColumnName="created_on" />
+          <ScalarProperty Name="updated_on" ColumnName="updated_on" />
+          <ScalarProperty Name="city1" ColumnName="city" />
+          <ScalarProperty Name="city_id" ColumnName="city_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Complaints">
+      <EntityTypeMapping TypeName="Model.Complaint">
+        <MappingFragment StoreEntitySet="Complaint">
+          <ScalarProperty Name="fk_area_id" ColumnName="fk_area_id" />
+          <ScalarProperty Name="fk_city_id" ColumnName="fk_city_id" />
+          <ScalarProperty Name="pending_at" ColumnName="pending_at" />
+          <ScalarProperty Name="garbage_id" ColumnName="garbage_id" />
+          <ScalarProperty Name="Mobile_Number" ColumnName="Mobile Number" />
+          <ScalarProperty Name="updated_time" ColumnName="updated_time" />
+          <ScalarProperty Name="updated_by" ColumnName="updated_by" />
+          <ScalarProperty Name="Created_time" ColumnName="Created_time" />
+          <ScalarProperty Name="Created_by" ColumnName="Created_by" />
+          <ScalarProperty Name="Completiondate" ColumnName="Completiondate" />
+          <ScalarProperty Name="Entrydate" ColumnName="Entrydate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Complaint_Id" ColumnName="Complaint_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dumped_areas">
+      <EntityTypeMapping TypeName="Model.dumped_area">
+        <MappingFragment StoreEntitySet="dumped area">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="updatedtime" ColumnName="updatedtime" />
+          <ScalarProperty Name="createdtime" ColumnName="createdtime" />
+          <ScalarProperty Name="updatedby" ColumnName="updatedby" />
+          <ScalarProperty Name="createdby" ColumnName="createdby" />
+          <ScalarProperty Name="cityid_fk" ColumnName="cityid_fk" />
+          <ScalarProperty Name="source" ColumnName="source" />
+          <ScalarProperty Name="Dumping_id" ColumnName="Dumping_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dumping_details">
+      <EntityTypeMapping TypeName="Model.dumping_detail">
+        <MappingFragment StoreEntitySet="dumping detail">
+          <ScalarProperty Name="fk_area_id" ColumnName="fk_area_id" />
+          <ScalarProperty Name="fk_userid" ColumnName="fk_userid" />
+          <ScalarProperty Name="updated_time" ColumnName="updated_time" />
+          <ScalarProperty Name="created_on" ColumnName="created_on" />
+          <ScalarProperty Name="updated_by" ColumnName="updated_by" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="fk_city_id" ColumnName="fk_city_id" />
+          <ScalarProperty Name="destination_fk" ColumnName="destination_fk" />
+          <ScalarProperty Name="source_fk" ColumnName="source_fk" />
+          <ScalarProperty Name="fk_name" ColumnName="fk_name" />
+          <ScalarProperty Name="dump_area_id" ColumnName="dump_area_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="feedbacks">
+      <EntityTypeMapping TypeName="Model.feedback">
+        <MappingFragment StoreEntitySet="feedback">
+          <ScalarProperty Name="rating" ColumnName="rating" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Review" ColumnName="Review" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedTime" ColumnName="UpdatedTime" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="FeedbackID" ColumnName="FeedbackID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="garbages">
+      <EntityTypeMapping TypeName="Model.garbage">
+        <MappingFragment StoreEntitySet="garbage">
+          <ScalarProperty Name="fk_garbage_type" ColumnName="fk_garbage_type" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="updated_on" ColumnName="updated_on" />
+          <ScalarProperty Name="created_on" ColumnName="created_on" />
+          <ScalarProperty Name="updated_by" ColumnName="updated_by" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Hygiene_level" ColumnName="Hygiene_level" />
+          <ScalarProperty Name="fk_user_id" ColumnName="fk_user_id" />
+          <ScalarProperty Name="garbage_id" ColumnName="garbage_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roles">
+      <EntityTypeMapping TypeName="Model.role">
+        <MappingFragment StoreEntitySet="roles">
+          <ScalarProperty Name="updated_on" ColumnName="updated_on" />
+          <ScalarProperty Name="created_on" ColumnName="created_on" />
+          <ScalarProperty Name="updated_by" ColumnName="updated_by" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="signups">
+      <EntityTypeMapping TypeName="Model.signup">
+        <MappingFragment StoreEntitySet="signups">
+          <ScalarProperty Name="resetpassword" ColumnName="resetpassword" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="updated_on" ColumnName="updated_on" />
+          <ScalarProperty Name="created_on" ColumnName="created_on" />
+          <ScalarProperty Name="updated_by" ColumnName="updated_by" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="phone_no" ColumnName="phone_no" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="fk_role_id" ColumnName="fk_role_id" />
+          <ScalarProperty Name="fk_area_id" ColumnName="fk_area_id" />
+          <ScalarProperty Name="fk_city_id" ColumnName="fk_city_id" />
+          <ScalarProperty Name="Signup_ID" ColumnName="Signup_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vehiclesdetails">
+      <EntityTypeMapping TypeName="Model.vehiclesdetail">
+        <MappingFragment StoreEntitySet="vehiclesdetails">
+          <ScalarProperty Name="fk_area_id" ColumnName="fk_area_id" />
+          <ScalarProperty Name="fk_userid" ColumnName="fk_userid" />
+          <ScalarProperty Name="updatedby" ColumnName="updatedby" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Updatedtime" ColumnName="Updatedtime" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="fk_cityid" ColumnName="fk_cityid" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="fk_Name" ColumnName="fk_Name" />
+          <ScalarProperty Name="VehicleId" ColumnName="VehicleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,101 @@
+﻿
+@{
+    ViewBag.Title = "Calculator";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>NPV Calculator</h2>
+
+<div class="form-horizontal">
+    <hr />
+
+    <div class="required">
+       
+        <div class="form-group">
+            Cash1
+            <div class="form-control">
+                <input type="number" name="vendorName" id="Cash1" required />
+            </div>
+        </div>
+        <div class="form-group">
+            Cash2
+            <div class="form-control">
+                <input type="number" name="amount" id="Cash2" />
+            </div>
+        </div>
+        <div class="form-group">
+            Cash3
+            <div class="form-control">
+                <input type="number" name="amount" id="Cash3" />
+            </div>
+        </div>
+        <div class="form-group">
+            Cash4
+            <div class="form-control">
+                <input type="number" name="amount" id="Cash4" />
+            </div>
+        </div>
+        <div class="form-group">
+            Discount Rate
+            <div class="form-control">
+                <input type="number" name="amount" id="Discount" />
+            </div>
+        </div>
+       
+    </div>
+    <div class="form-group">
+        Net Present Value
+
+        <p id="result"></p>
+
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="button" onclick="return netvalue();" value="Calculate" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script>
+    var cash1 = document.getElementById("Cash1");
+    var cash2 = document.getElementById("Cash2");
+    var cash3 = document.getElementById("Cash3");
+    var cash4 = document.getElementById("Cash4");
+    var Dis = document.getElementById("Discount");
+    var Ans = document.getElementById("result");
+    cash1.addEventListener("input", NPV);
+    cash2.addEventListener("input", NPV);
+    cash3.addEventListener("input", NPV);
+    cash4.addEventListener("input", NPV);
+    Dis.addEventListener("input", NPV);
+    function NPV() {
+       
+        var cf1 = parseFloat(cash1.value) || 0;
+        var cf2 = parseFloat(cash2.value) || 0;
+        var cf3 = parseFloat(cash3.value) || 0;
+        var cf4 = parseFloat(cash4.value) || 0;
+        var ds = parseFloat(Dis.value) || 0;
+        var arr = [cf1, cf2, cf3, cf4];
+         var npv = 0;
+       for (var i = 0; i < arr.length; i++) {
+            if (i == 0) {
+                npv = npv - arr[i];
+            }
+            else {
+                val = arr[i] / Math.pow(1 + ds, i);
+                npv = npv + val;
+            }
+            Ans.innerHTML = "your npv is " + npv;
+        }
+    }
+</script>
+
+
+
+

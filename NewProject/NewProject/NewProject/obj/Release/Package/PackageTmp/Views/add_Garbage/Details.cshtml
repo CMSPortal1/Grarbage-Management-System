@@ -1,0 +1,59 @@
+﻿@model NewProject.Models.add_Garbage
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>add_Garbage</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.G_Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.G_Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Updated_by)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Updated_by)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Created_By)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Created_By)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Updated_On)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Updated_On)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Created_on)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Created_on)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.G_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

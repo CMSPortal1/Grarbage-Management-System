@@ -1,0 +1,220 @@
+﻿@*@model NewProject.Models.signup*@
+
+@model Garbage.Common.DTO.UserDTO
+@{
+    ViewBag.Title = "EditProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<html>
+<head>
+    <link href="~/Content/image.css" rel="stylesheet" />
+</head>
+<!------ Include the above in your HEAD tag ---------->
+<body>
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="container" style="float:left">
+
+            <div class="row">
+
+
+                <div class="col-md-7 ">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <br /><br />
+                        </div>
+                        <div class="panel-body">
+                            <div class="box box-info">
+
+                                <div class="col-md-9">
+
+                                    @if (Model.image != null)
+                                    {
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-md-3 col-lg-3 " align="center" id="profile-image1">
+                                                    <img class="img-circle img-responsive" src="@Url.Content(Model.image)" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+
+                                    else
+                                    {
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-md-3 col-lg-3 " align="center" id="profile-image1">
+                                                    <img class="img-circle img-responsive" src="~/Content/photos/images.png" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                    <br />
+                                    <div class="col-md-4">
+                                        <div class="btn btn_primary">
+                                            <input type="file" id="imageBrowse" name="file" style="width:10px;float:left;" />
+
+                                        </div>
+                                        <hr />
+                                        <div id="imgPreview" class="thumbnail" style="display:none">
+                                            <img class="img-responsive" id="targetImg" />
+                                            <div class="caption">
+                                                <a href="#" class="btn btn-default" onclick="ClearPreview()">Delete</a>
+                                                <span id="description"></span>
+                                                <input type="submit" value="Upload" name="PicUpload" class="btn btn-success btn-sm" id="btn"
+                                                       onmouseover="OnMouseOver()"
+                                                       onmouseout=" OnMouseOut()" style="background-color:#bd2130" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+
+                                <!-- /input-group -->
+                            </div>
+                            <div class="rightside" style="position:absolute">
+                                <div class="name">
+                                    <div class="col-sm-6">
+                                        <h4>@Model.username @Model.FatherName </h4>
+
+                                        @*<p><b>@Model.role.Title</b></p>*@                      @*NEED TO SHOW ROLE title*@ 
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <hr style="margin:5px 0 5px 0;border-color:green">
+
+
+                                    <div class="col-sm-5 col-xs-6 tital ">First Name</div>
+                                    <div class="col-sm-7 col-xs-6 ">@Model.username</div>
+                                    <div class="clearfix"></div>
+                                    <div class="clearfix"></div>
+                                    <div class="bot-border"></div>
+                                    <div class="col-sm-5 col-xs-6 tital ">Last Name</div>
+                                    <div class="col-sm-7"> @Model.FatherName</div>
+                                    <div class="clearfix"></div>
+                                    <div class="bot-border"></div>
+                                </div>
+                                <div class="col-sm-5 col-xs-6 tital ">Date Of Joining</div><div class="col-sm-7">@Model.created_on</div>
+                                <div class="clearfix"></div>
+                                <div class="bot-border"></div>
+                                <div class="col-sm-5 col-xs-6 tital ">Address</div><div class="col-sm-7">@Model.address</div>
+                                <div class="clearfix"></div>
+                                <div class="bot-border"></div>
+                                <div class="col-sm-5 col-xs-6 tital ">Nationality</div><div class="col-sm-7">Pakistani</div>
+                                <div class="clearfix"></div>
+                                <div class="bot-border"></div>
+
+                            </div>
+
+                            <!-- /.box-body -->
+                        </div>
+                        <!-- /.box -->
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    }
+</body>
+</html>
+
+
+
+
+
+<style>
+    .rightside {
+        float: right;
+        position: absolute;
+        left: 222px;
+        position: relative;
+        height: 75px;
+        width: 100%;
+        border-top: 40px ridge #272c33c7;
+        padding-top: 10px;
+    }
+
+        .rightside:after {
+            position: absolute;
+            content: '';
+            top: 0px;
+            height: 8px;
+            width: 100%;
+            background-size: 12px 12px;
+            background-position: -5px -3px;
+            background-image: -webkit-radial-gradient(50% 0%, circle, #bd2130 50%, transparent 55%);
+            background-image: -moz-radial-gradient(50% 0%, circle, #bd2130 50%, transparent 55%);
+            background-image: radial-gradient(circle at 50% 0%, #198b11 50%, transparent 55%);
+        }
+
+    .name {
+        text-transform: capitalize;
+    }
+
+    .col-sm-5 {
+        font-weight: bold;
+    }
+
+    .bot-border {
+        border-color: green;
+    }
+</style>
+
+
+
+
+
+
+<script>
+
+    $(document).ready(function () {
+        $("#imageBrowse").change(function () {
+            var File = this.files
+            if (File && File[0]) {
+                ReadImage(File[0]);
+            }
+        })
+    })
+    var ReadImage = function (file) {
+        var reader = new FileReader;
+        var image = new Image;
+        reader.readAsDataURL(file);
+        reader.onload = function (_file) {
+            image.src = _file.target.result;
+            image.onload = function () {
+
+                var height = this.height;
+                var width = this.width;
+                var type = file.type;
+                var size = ~~(file.size / 1024) + "kB";
+
+                $("#targetImg").attr('src', _file.target.result);
+                $("#description").text("size:" + size + " ," + height + "x" + width + "," + type + "");
+                $("#imgPreview").show();
+
+            }
+        }
+    }
+    var ClearPreview = function () {
+        $("#imageBrowse").val(' ');
+        $("#description").text(' ');
+        $("#imgPreview").hide();
+    }
+
+    document.getElementById("btn").onmouseover = function () {
+
+        this.style.background = "black";
+        this.style.color = "white";
+    }
+    document.getElementById("btn").onmouseout = function () {
+
+        this.style.background = "#bd2130";
+        this.style.color = "white";
+    }
+
+
+
+</script>
+

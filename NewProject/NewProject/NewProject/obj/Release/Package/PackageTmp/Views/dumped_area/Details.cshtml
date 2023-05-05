@@ -1,0 +1,74 @@
+﻿@model NewProject.Models.dumped_area
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>dumped_area</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.source)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.source)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.createdby)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.createdby)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.updatedby)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.updatedby)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.createdtime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.createdtime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.updatedtime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.updatedtime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.city.city1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.city.city1)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Dumping_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

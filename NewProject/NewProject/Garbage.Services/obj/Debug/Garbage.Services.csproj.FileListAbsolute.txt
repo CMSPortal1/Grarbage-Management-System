@@ -1,0 +1,16 @@
+E:\NewProject\Garbage.Services\bin\Debug\Garbage.Services.dll
+E:\NewProject\Garbage.Services\bin\Debug\Garbage.Services.pdb
+E:\NewProject\Garbage.Services\obj\Debug\Garbage.Services.csproj.CoreCompileInputs.cache
+E:\NewProject\Garbage.Services\obj\Debug\Garbage.Services.dll
+E:\NewProject\Garbage.Services\obj\Debug\Garbage.Services.pdb
+E:\NewProject\Garbage.Services\obj\Debug\Garbage.Services.csprojAssemblyReference.cache
+E:\NewProject\Garbage.Services\bin\Debug\Garbage.Common.dll
+E:\NewProject\Garbage.Services\bin\Debug\Garbage.EF.dll
+E:\NewProject\Garbage.Services\bin\Debug\Newtonsoft.Json.dll
+E:\NewProject\Garbage.Services\bin\Debug\Garbage.Common.pdb
+E:\NewProject\Garbage.Services\bin\Debug\Garbage.EF.pdb
+E:\NewProject\Garbage.Services\bin\Debug\Garbage.EF.dll.config
+E:\NewProject\Garbage.Services\bin\Debug\Newtonsoft.Json.xml
+E:\NewProject\Garbage.Services\obj\Debug\Garbage.Services.csproj.CopyComplete
+E:\NewProject\Garbage.Services\bin\Debug\EntityFramework.dll
+E:\NewProject\Garbage.Services\bin\Debug\EntityFramework.xml

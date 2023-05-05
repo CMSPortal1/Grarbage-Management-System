@@ -1,0 +1,401 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="add Garbage">
+    <Key>
+      <PropertyRef Name="G_id" />
+    </Key>
+    <Property Name="G_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="G_Type" Type="varchar" MaxLength="50" />
+    <Property Name="Updated_by" Type="varchar" MaxLength="50" />
+    <Property Name="Created_By" Type="varchar" MaxLength="50" />
+    <Property Name="Updated_On" Type="datetime" />
+    <Property Name="Created_on" Type="datetime" />
+  </EntityType>
+  <EntityType Name="AddVehicle">
+    <Key>
+      <PropertyRef Name="Vehicle" />
+    </Key>
+    <Property Name="Vehicle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="CreatedTime" Type="datetime" />
+    <Property Name="updatedtime" Type="datetime" />
+    <Property Name="createdby" Type="varchar" MaxLength="50" />
+    <Property Name="updatedby" Type="varchar" MaxLength="50" />
+    <Property Name="Model" Type="varchar" MaxLength="50" />
+    <Property Name="Image" Type="varchar" MaxLength="50" />
+    <Property Name="city" Type="int" />
+  </EntityType>
+  <EntityType Name="area">
+    <Key>
+      <PropertyRef Name="Area_id" />
+    </Key>
+    <Property Name="Area_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="area" Type="varchar" MaxLength="50" />
+    <Property Name="created_on" Type="datetime" />
+    <Property Name="created_by" Type="varchar" MaxLength="50" />
+    <Property Name="updated_time" Type="datetime" />
+    <Property Name="updated_by" Type="varchar" MaxLength="50" />
+    <Property Name="cityid" Type="int" />
+  </EntityType>
+  <EntityType Name="city">
+    <Key>
+      <PropertyRef Name="city_id" />
+    </Key>
+    <Property Name="city_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="city" Type="varchar" MaxLength="50" />
+    <Property Name="updated_on" Type="datetime" />
+    <Property Name="created_on" Type="datetime" />
+    <Property Name="updated_by" Type="varchar" MaxLength="50" />
+    <Property Name="created_by" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Complaint">
+    <Key>
+      <PropertyRef Name="Complaint_Id" />
+    </Key>
+    <Property Name="Complaint_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="int" />
+    <Property Name="Address" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="50" />
+    <Property Name="Entrydate" Type="datetime" />
+    <Property Name="Completiondate" Type="datetime" />
+    <Property Name="Created_by" Type="varchar" MaxLength="50" />
+    <Property Name="Created_time" Type="datetime" />
+    <Property Name="updated_by" Type="varchar" MaxLength="50" />
+    <Property Name="updated_time" Type="datetime" />
+    <Property Name="Mobile Number" Type="varchar" MaxLength="50" />
+    <Property Name="garbage_id" Type="int" />
+    <Property Name="pending_at" Type="int" />
+    <Property Name="fk_city_id" Type="int" />
+    <Property Name="fk_area_id" Type="int" />
+  </EntityType>
+  <EntityType Name="dumped area">
+    <Key>
+      <PropertyRef Name="Dumping_id" />
+    </Key>
+    <Property Name="Dumping_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="source" Type="varchar" MaxLength="50" />
+    <Property Name="cityid_fk" Type="int" />
+    <Property Name="createdby" Type="varchar" MaxLength="50" />
+    <Property Name="updatedby" Type="varchar" MaxLength="50" />
+    <Property Name="createdtime" Type="datetime" />
+    <Property Name="updatedtime" Type="datetime" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="dumping detail">
+    <Key>
+      <PropertyRef Name="dump_area_id" />
+    </Key>
+    <Property Name="dump_area_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fk_name" Type="int" />
+    <Property Name="source_fk" Type="varchar" MaxLength="50" />
+    <Property Name="destination_fk" Type="varchar" MaxLength="50" />
+    <Property Name="fk_city_id" Type="int" />
+    <Property Name="created_by" Type="varchar" MaxLength="50" />
+    <Property Name="updated_by" Type="varchar" MaxLength="50" />
+    <Property Name="created_on" Type="datetime" />
+    <Property Name="updated_time" Type="datetime" />
+    <Property Name="fk_userid" Type="int" />
+    <Property Name="fk_area_id" Type="int" />
+  </EntityType>
+  <EntityType Name="feedback">
+    <Key>
+      <PropertyRef Name="FeedbackID" />
+    </Key>
+    <Property Name="FeedbackID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="CreatedTime" Type="datetime" />
+    <Property Name="UpdatedTime" Type="datetime" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="Review" Type="varchar" MaxLength="50" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="rating" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="garbage">
+    <Key>
+      <PropertyRef Name="garbage_id" />
+    </Key>
+    <Property Name="garbage_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fk_user_id" Type="int" Nullable="false" />
+    <Property Name="Hygiene_level" Type="varchar" MaxLength="50" />
+    <Property Name="Comment" Type="varchar" MaxLength="50" />
+    <Property Name="created_by" Type="varchar" MaxLength="50" />
+    <Property Name="updated_by" Type="varchar" MaxLength="50" />
+    <Property Name="created_on" Type="datetime" />
+    <Property Name="updated_on" Type="datetime" />
+    <Property Name="Cost" Type="int" />
+    <Property Name="Weight" Type="int" />
+    <Property Name="fk_garbage_type" Type="int" />
+  </EntityType>
+  <EntityType Name="roles">
+    <Key>
+      <PropertyRef Name="role_id" />
+    </Key>
+    <Property Name="role_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="created_by" Type="varchar" MaxLength="50" />
+    <Property Name="updated_by" Type="varchar" MaxLength="50" />
+    <Property Name="created_on" Type="datetime" />
+    <Property Name="updated_on" Type="datetime" />
+  </EntityType>
+  <EntityType Name="signups">
+    <Key>
+      <PropertyRef Name="Signup_ID" />
+    </Key>
+    <Property Name="Signup_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fk_city_id" Type="int" />
+    <Property Name="fk_area_id" Type="int" />
+    <Property Name="fk_role_id" Type="int" />
+    <Property Name="username" Type="varchar" MaxLength="50" />
+    <Property Name="FatherName" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="password" Type="varchar" MaxLength="50" />
+    <Property Name="address" Type="varchar" MaxLength="50" />
+    <Property Name="phone_no" Type="varchar" MaxLength="50" />
+    <Property Name="gender" Type="varchar" MaxLength="50" />
+    <Property Name="created_by" Type="varchar" MaxLength="50" />
+    <Property Name="updated_by" Type="varchar" MaxLength="50" />
+    <Property Name="created_on" Type="datetime" />
+    <Property Name="updated_on" Type="datetime" />
+    <Property Name="image" Type="varchar" MaxLength="50" />
+    <Property Name="resetpassword" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="vehiclesdetails">
+    <Key>
+      <PropertyRef Name="VehicleId" />
+    </Key>
+    <Property Name="VehicleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fk_Name" Type="int" />
+    <Property Name="Model" Type="varchar" MaxLength="50" />
+    <Property Name="image" Type="varchar" MaxLength="50" />
+    <Property Name="fk_cityid" Type="int" />
+    <Property Name="CreatedTime" Type="datetime" />
+    <Property Name="Updatedtime" Type="datetime" />
+    <Property Name="Createdby" Type="varchar" MaxLength="50" />
+    <Property Name="updatedby" Type="varchar" MaxLength="50" />
+    <Property Name="fk_userid" Type="int" />
+    <Property Name="fk_area_id" Type="int" />
+  </EntityType>
+  <Association Name="FK_Complaint_garbage">
+    <End Role="garbage" Type="Self.garbage" Multiplicity="0..1" />
+    <End Role="Complaint" Type="Self.Complaint" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="garbage">
+        <PropertyRef Name="garbage_id" />
+      </Principal>
+      <Dependent Role="Complaint">
+        <PropertyRef Name="garbage_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Complaint_signups">
+    <End Role="signups" Type="Self.signups" Multiplicity="0..1" />
+    <End Role="Complaint" Type="Self.Complaint" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="signups">
+        <PropertyRef Name="Signup_ID" />
+      </Principal>
+      <Dependent Role="Complaint">
+        <PropertyRef Name="UserName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dumped area_city">
+    <End Role="city" Type="Self.city" Multiplicity="0..1" />
+    <End Role="dumped area" Type="Self.dumped area" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="city">
+        <PropertyRef Name="city_id" />
+      </Principal>
+      <Dependent Role="dumped area">
+        <PropertyRef Name="cityid_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dumping detail_dumped area">
+    <End Role="dumped area" Type="Self.dumped area" Multiplicity="0..1" />
+    <End Role="dumping detail" Type="Self.dumping detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dumped area">
+        <PropertyRef Name="Dumping_id" />
+      </Principal>
+      <Dependent Role="dumping detail">
+        <PropertyRef Name="fk_name" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dumping detail_signups">
+    <End Role="signups" Type="Self.signups" Multiplicity="0..1" />
+    <End Role="dumping detail" Type="Self.dumping detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="signups">
+        <PropertyRef Name="Signup_ID" />
+      </Principal>
+      <Dependent Role="dumping detail">
+        <PropertyRef Name="fk_userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dumping detail_vehiclesdetails">
+    <End Role="vehiclesdetails" Type="Self.vehiclesdetails" Multiplicity="0..1" />
+    <End Role="dumping detail" Type="Self.dumping detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vehiclesdetails">
+        <PropertyRef Name="VehicleId" />
+      </Principal>
+      <Dependent Role="dumping detail">
+        <PropertyRef Name="fk_city_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_feedback_signups">
+    <End Role="signups" Type="Self.signups" Multiplicity="0..1" />
+    <End Role="feedback" Type="Self.feedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="signups">
+        <PropertyRef Name="Signup_ID" />
+      </Principal>
+      <Dependent Role="feedback">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_garbage_add Garbage">
+    <End Role="add Garbage" Type="Self.add Garbage" Multiplicity="0..1" />
+    <End Role="garbage" Type="Self.garbage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="add Garbage">
+        <PropertyRef Name="G_id" />
+      </Principal>
+      <Dependent Role="garbage">
+        <PropertyRef Name="fk_garbage_type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_garbage_signups">
+    <End Role="signups" Type="Self.signups" Multiplicity="1" />
+    <End Role="garbage" Type="Self.garbage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="signups">
+        <PropertyRef Name="Signup_ID" />
+      </Principal>
+      <Dependent Role="garbage">
+        <PropertyRef Name="fk_user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_signups_roles">
+    <End Role="roles" Type="Self.roles" Multiplicity="0..1" />
+    <End Role="signups" Type="Self.signups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="roles">
+        <PropertyRef Name="role_id" />
+      </Principal>
+      <Dependent Role="signups">
+        <PropertyRef Name="fk_role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_vehiclesdetails_AddVehicle">
+    <End Role="AddVehicle" Type="Self.AddVehicle" Multiplicity="0..1" />
+    <End Role="vehiclesdetails" Type="Self.vehiclesdetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AddVehicle">
+        <PropertyRef Name="Vehicle" />
+      </Principal>
+      <Dependent Role="vehiclesdetails">
+        <PropertyRef Name="fk_Name" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_vehiclesdetails_city">
+    <End Role="city" Type="Self.city" Multiplicity="0..1" />
+    <End Role="vehiclesdetails" Type="Self.vehiclesdetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="city">
+        <PropertyRef Name="city_id" />
+      </Principal>
+      <Dependent Role="vehiclesdetails">
+        <PropertyRef Name="fk_cityid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_vehiclesdetails_signups">
+    <End Role="signups" Type="Self.signups" Multiplicity="0..1" />
+    <End Role="vehiclesdetails" Type="Self.vehiclesdetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="signups">
+        <PropertyRef Name="Signup_ID" />
+      </Principal>
+      <Dependent Role="vehiclesdetails">
+        <PropertyRef Name="fk_userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="add Garbage" EntityType="Self.add Garbage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AddVehicle" EntityType="Self.AddVehicle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="area" EntityType="Self.area" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="city" EntityType="Self.city" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Complaint" EntityType="Self.Complaint" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="dumped area" EntityType="Self.dumped area" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="dumping detail" EntityType="Self.dumping detail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="feedback" EntityType="Self.feedback" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="garbage" EntityType="Self.garbage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="roles" EntityType="Self.roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="signups" EntityType="Self.signups" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vehiclesdetails" EntityType="Self.vehiclesdetails" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Complaint_garbage" Association="Self.FK_Complaint_garbage">
+      <End Role="garbage" EntitySet="garbage" />
+      <End Role="Complaint" EntitySet="Complaint" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Complaint_signups" Association="Self.FK_Complaint_signups">
+      <End Role="signups" EntitySet="signups" />
+      <End Role="Complaint" EntitySet="Complaint" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dumped area_city" Association="Self.FK_dumped area_city">
+      <End Role="city" EntitySet="city" />
+      <End Role="dumped area" EntitySet="dumped area" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dumping detail_dumped area" Association="Self.FK_dumping detail_dumped area">
+      <End Role="dumped area" EntitySet="dumped area" />
+      <End Role="dumping detail" EntitySet="dumping detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dumping detail_signups" Association="Self.FK_dumping detail_signups">
+      <End Role="signups" EntitySet="signups" />
+      <End Role="dumping detail" EntitySet="dumping detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dumping detail_vehiclesdetails" Association="Self.FK_dumping detail_vehiclesdetails">
+      <End Role="vehiclesdetails" EntitySet="vehiclesdetails" />
+      <End Role="dumping detail" EntitySet="dumping detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_feedback_signups" Association="Self.FK_feedback_signups">
+      <End Role="signups" EntitySet="signups" />
+      <End Role="feedback" EntitySet="feedback" />
+    </AssociationSet>
+    <AssociationSet Name="FK_garbage_add Garbage" Association="Self.FK_garbage_add Garbage">
+      <End Role="add Garbage" EntitySet="add Garbage" />
+      <End Role="garbage" EntitySet="garbage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_garbage_signups" Association="Self.FK_garbage_signups">
+      <End Role="signups" EntitySet="signups" />
+      <End Role="garbage" EntitySet="garbage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_signups_roles" Association="Self.FK_signups_roles">
+      <End Role="roles" EntitySet="roles" />
+      <End Role="signups" EntitySet="signups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_vehiclesdetails_AddVehicle" Association="Self.FK_vehiclesdetails_AddVehicle">
+      <End Role="AddVehicle" EntitySet="AddVehicle" />
+      <End Role="vehiclesdetails" EntitySet="vehiclesdetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_vehiclesdetails_city" Association="Self.FK_vehiclesdetails_city">
+      <End Role="city" EntitySet="city" />
+      <End Role="vehiclesdetails" EntitySet="vehiclesdetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_vehiclesdetails_signups" Association="Self.FK_vehiclesdetails_signups">
+      <End Role="signups" EntitySet="signups" />
+      <End Role="vehiclesdetails" EntitySet="vehiclesdetails" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

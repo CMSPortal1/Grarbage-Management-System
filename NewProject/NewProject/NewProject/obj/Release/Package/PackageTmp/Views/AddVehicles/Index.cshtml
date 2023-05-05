@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Garbage.Common.DTO.AddVehiclesDTO>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card-header">
+    <strong class="card-title">Add Vehicles</strong>
+</div>
+<div class="card-body">
+
+</div><div class="row">
+    <div class="col-sm-12">
+        <table id="bootstrap-data-table" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="bootstrap-data-table_info">
+            <thead>
+
+                <tr style="background-color:#d39e00">
+                    <th>
+                        Image
+                    </th>
+                    <th>
+                        Username
+                    </th>
+                    <th>
+                      City
+                    </th>
+                    <th>
+                       Model#
+                    </th>
+           <th>Actions</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        <img src="@Url.Content(item.Image)" width="200" height="150" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.city)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Model)
+                    </td>
+
+                   
+                    <td class="text-center">
+                        <a class='btn btn-info btn-xs' href="@Url.Action("Edit","Edit", new { id = item.Vehicle })"><i class="fa fa-edit"></i><span class="glyphicon glyphicon-edit"></span> Edit</a>
+                        <a class='btn btn-info btn-xs1' href="@Url.Action("Delete", "Delete", new { id = item.Vehicle })"><i class="fa fa-eraser"></i><span class="glyphicon glyphicon-remove"></span> Delete</a>
+                        <a class='btn btn-info btn-xs' href="@Url.Action("Details", "Details", new { id = item.Vehicle })"><i class="fa fa-list"></i><span class="glyphicon glyphicon-remove"></span> Details</a>
+
+               
+
+                    </td>
+                   
+                   
+                </tr>
+                }
+
+   
+        </tbody>
+        </table>
+    </div>
+</div>
+<style>
+    .btn-xs {
+        border: 1px solid;
+        border-radius: 10px;
+    }
+    .btn-xs1 {
+        background-color: red;
+        border: 1px solid;
+        border-radius: 10px;
+    }
+</style>

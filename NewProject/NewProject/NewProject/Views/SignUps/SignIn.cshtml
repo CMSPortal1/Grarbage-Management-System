@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "SignIn";
+    Layout = null;
+}
+
+<html lang="en">
+<head>
+    <title>Login</title>
+    <!-- metatags-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="wedlock register form a Flat Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements">
+    <script type="application/x-javascript">
+         addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+        function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Meta tag Keywords -->
+    <!-- css -->
+    <link href="~/Content/login/css/style.css" rel="stylesheet" />
+    <!--// css -->
+    <link href="~/Content/login/fonts/Cabin-Regular.ttf">
+    <link href="~/Content/login/fonts/Philosopher-Regular.ttf">
+    <link href="~/Content/login/fonts/TitilliumWeb-Regular.ttf">
+</head>
+<body>
+    @*<form class="form-signin">*@
+    @using (Html.BeginForm("SignIn","SignUps",FormMethod.Post, new { @class = "form-signin" }))
+    {@Html.AntiForgeryToken()
+
+    <section class="agile-header">
+        <div class="agile-heading">
+            <h1><span class="image"></span>lOGIN HERE</h1>
+        </div>
+        <div class="agile-form">
+            <div class="agile-email">
+                <p>email-address</p>
+                <input type="email" name="Email" placeholder="email-address" required="">
+            </div>
+            <div class="agile-password">
+                <p>password</p>
+                <input type="password" name="password" placeholder="password" required="">
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="agile-submit">
+                <input type="submit" value="Sign In">
+            </div>
+            <div class="agile-submit">
+                <input type="submit" value="Forget Password">
+                <a href="@Url.Action("signup","signup")" class="btn btn-large btn-primary">Sign Up</a>
+            </div>
+        </div>
+        <div class="clear"></div>
+
+    </section>
+
+}
+    @* </form>*@
+
+</body>
+</html>

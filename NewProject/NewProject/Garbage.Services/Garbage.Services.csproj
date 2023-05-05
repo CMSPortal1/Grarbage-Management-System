@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4DEE477E-F97E-4711-8A5D-B6E4E1828985}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Garbage.Services</RootNamespace>
+    <AssemblyName>Garbage.Services</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="implementation\AccountService.cs" />
+    <Compile Include="implementation\AddDumpedAreaService.cs" />
+    <Compile Include="implementation\AddVehicleService.cs" />
+    <Compile Include="implementation\AreaService.cs" />
+    <Compile Include="implementation\AssignedDumpedService.cs" />
+    <Compile Include="implementation\AssignedVehicleService.cs" />
+    <Compile Include="implementation\CityService.cs" />
+    <Compile Include="implementation\ComplaintService.cs" />
+    <Compile Include="implementation\FeedBackService.cs" />
+    <Compile Include="implementation\GarbageRequestService.cs" />
+    <Compile Include="implementation\GarbageTypeInfoService.cs" />
+    <Compile Include="implementation\RolesService.cs" />
+    <Compile Include="implementation\SingleResponse.cs" />
+    <Compile Include="Interface\IAddDumpedAreaService.cs" />
+    <Compile Include="Interface\IAddVehicle.cs" />
+    <Compile Include="Interface\IAreaService.cs" />
+    <Compile Include="Interface\IAssignedDumped.cs" />
+    <Compile Include="Interface\ICityService.cs" />
+    <Compile Include="Interface\IComplaintService.cs" />
+    <Compile Include="Interface\IFeedBackService.cs" />
+    <Compile Include="Interface\IAccountService.cs" />
+    <Compile Include="Interface\IGarbageRequestService.cs" />
+    <Compile Include="Interface\IGarbageTypeService.cs" />
+    <Compile Include="Interface\IRolesService.cs" />
+    <Compile Include="Interface\IVehicleAssignService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Garbage.Common\Garbage.Common.csproj">
+      <Project>{6490e0a1-c943-4b06-87fc-27886c704af7}</Project>
+      <Name>Garbage.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Garbage.EF\Garbage.EF.csproj">
+      <Project>{3c110e4f-b7a8-4758-b073-545af1d3ded4}</Project>
+      <Name>Garbage.EF</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

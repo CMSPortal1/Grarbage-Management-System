@@ -1,0 +1,177 @@
+﻿
+@{
+    ViewBag.Title = "SignIn";
+    Layout = null;
+}
+<html lang="en">
+<head>
+    <title>Login</title>
+    <!-- metatags-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="wedlock register form a Flat Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements">
+    <script type="application/x-javascript">
+         addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+        function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Meta tag Keywords -->
+    <!-- css -->
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/login/css/style.css" rel="stylesheet" />
+    <!--// css -->
+    <link href="~/Content/login/fonts/Cabin-Regular.ttf">
+    <link href="~/Content/login/fonts/Philosopher-Regular.ttf">
+    <link href="~/Content/login/fonts/TitilliumWeb-Regular.ttf">
+</head>
+<body>
+    @*<form class="form-signin">*@
+    @using (Html.BeginForm("SignIn", "Login", FormMethod.Post, new { @class = "form-signin" }))
+    {@Html.AntiForgeryToken()
+
+    <section class="agile-header">
+        <div class="agile-heading">
+            <h1><span class="image"></span>lOGIN HERE</h1>
+        </div>
+        <div class="agile-form">
+            <div class="agile-email">
+                <p>email-address</p>
+                <input type="email" name="Email" placeholder="email-address" required="">
+            </div>
+            <div class="agile-password">
+                <p>password</p>
+                <input type="password" name="password" placeholder="password" id="pwd" class="field-icon" required="">
+                @*<input placeholder="Password" name="password" id="password" class="form-control input-field" type="password" required="">*@
+                <span class="glyphicon glyphicon-eye-open"></span>
+                @*<span> <img src="~/Content/photos/eye.png" type="button" onclick="showHide()" id="eye" /></span>*@
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="agile-submit">
+                <input type="submit" value="Sign In">
+            </div>
+         
+            <div class="agile-submit">
+                <a class="password" href="@Url.Action("ForgetPassword", "SignUps")" class="btn btn-large btn-primary" style="width:55%">Forget Password</a>
+                </div>
+            <br />
+            <div class="newuser">
+                <p class="new" >new user? <a class="link" href="@Url.Action("SignUp", "Login")">create new account</a></p>
+            </div>
+        </div>
+    </section>
+
+}
+    @* </form>*@
+
+</body>
+</html>
+
+
+<script>
+    //function show() {
+    //    var p = document.getElementById('pwd');
+    //    p.setAttribute('type', 'text');
+    //}
+
+    //function hide() {
+    //    var p = document.getElementById('pwd');
+    //    p.setAttribute('type', 'password');
+    //}
+
+    //var pwShown = 0;
+
+    //document.getElementById("eye").addEventListener("click", function () {
+    //    if (pwShown == 0) {
+    //        pwShown = 1;
+    //        show();
+    //    } else {
+    //        pwShown = 0;
+    //        hide();
+    //    }
+    //}, false);
+
+    $(".glyphicon-eye-open").on("click", function () {
+        $(this).toggleClass("glyphicon-eye-close");
+        var type = $("#pwd").attr("type");
+        if (type == "text") {
+            $("#pwd").prop('type', 'password');
+        }
+        else {
+            $("#pwd").prop('type', 'text');
+        }
+    });
+</script>
+
+<style>
+    #eye {
+        width: 1.5%;
+        position: absolute;
+        left: 820px;
+        top: 235px;
+    }
+
+    .newuser {
+        background: none;
+        font-size: 10px;
+    }
+
+    .link {
+        background: none;
+        display: inline;
+        font-size: 16px;
+        color: #df4444;
+    }
+
+        .link:hover {
+            text-decoration: underline;
+            color: blue;
+        }
+
+            .link:hover:before {
+                text-decoration: none;
+            }
+
+    .new {
+        text-align: center;
+        font-size: 16px;
+    }
+
+ .agile-password {
+        position: relative;
+    }
+
+    .agile-password input[type="password"] {
+        padding-right: 30px
+    }
+
+    .agile-password .glyphicon {
+        right: 20px;
+        position: absolute;
+        top: 37px;
+    }
+  .password  {
+        font-size: 20px;
+        font-weight: 500;
+        text-align: center;
+        text-transform: capitalize;
+        letter-spacing: 1px;
+        padding: 0.4em 0.4em;
+        width: 55%;
+        margin: 0.5em auto 0;
+        display: block;
+        border: none;
+        outline: none;
+        background: #44874c;
+        color: #fff;
+        cursor: pointer;
+        box-sizing: border-box;
+        font-family: sans-serif;
+        text-decoration: none;
+    }
+
+</style>
+
+
+

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9563ff4b56b544a3b0550a1ddbcdd241" Name="Diagram1" ZoomLevel="75">
+        <EntityTypeShape EntityType="Model.add_Garbage" Width="1.5" PointX="3" PointY="16.5" />
+        <EntityTypeShape EntityType="Model.AddVehicle" Width="1.5" PointX="3" PointY="0.875" />
+        <EntityTypeShape EntityType="Model.area" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Model.city" Width="1.5" PointX="3" PointY="4.5" />
+        <EntityTypeShape EntityType="Model.Complaint" Width="1.5" PointX="8.25" PointY="10.5" />
+        <EntityTypeShape EntityType="Model.dumped_area" Width="1.5" PointX="3" PointY="20.25" />
+        <EntityTypeShape EntityType="Model.dumping_detail" Width="1.5" PointX="5.25" PointY="10.875" />
+        <EntityTypeShape EntityType="Model.feedback" Width="1.5" PointX="5.25" PointY="29.875" />
+        <EntityTypeShape EntityType="Model.garbage" Width="1.5" PointX="5.25" PointY="15.875" />
+        <EntityTypeShape EntityType="Model.role" Width="1.5" PointX="0.75" PointY="11.5" />
+        <EntityTypeShape EntityType="Model.signup" Width="1.5" PointX="3" PointY="10" />
+        <EntityTypeShape EntityType="Model.vehiclesdetail" Width="1.5" PointX="5.25" PointY="5.75" />
+        <AssociationConnector Association="Model.FK_garbage_add_Garbage" />
+        <AssociationConnector Association="Model.FK_vehiclesdetails_AddVehicle" />
+        <AssociationConnector Association="Model.FK_dumped_area_city" />
+        <AssociationConnector Association="Model.FK_vehiclesdetails_city" />
+        <AssociationConnector Association="Model.FK_Complaint_garbage" />
+        <AssociationConnector Association="Model.FK_Complaint_signups" />
+        <AssociationConnector Association="Model.FK_dumping_detail_dumped_area" />
+        <AssociationConnector Association="Model.FK_dumping_detail_signups" />
+        <AssociationConnector Association="Model.FK_dumping_detail_vehiclesdetails" />
+        <AssociationConnector Association="Model.FK_feedback_signups" />
+        <AssociationConnector Association="Model.FK_garbage_signups" />
+        <AssociationConnector Association="Model.FK_signups_roles" />
+        <AssociationConnector Association="Model.FK_vehiclesdetails_signups" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

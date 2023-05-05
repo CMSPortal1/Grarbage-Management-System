@@ -1,0 +1,297 @@
+﻿@*@model NewProject.Models.signup*@
+@model Garbage.Common.DTO.UserDTO
+@{
+    ViewBag.Title = "SignUp";
+    Layout = null;
+}
+@TempData["error"].ToString()
+<html lang="en">
+<head>
+    <title>Signup</title>
+    <!-- metatags-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="wedlock register form a Flat Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements">
+    <script type="application/x-javascript">
+         addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+        function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <!-- Meta tag Keywords -->
+    <!-- css -->
+    <link href="~/Content/signup/css/style.css" rel="stylesheet" />
+    <!--// css -->
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/signup/login/fonts/Cabin-Regular.ttf">
+    <link href="~/Content/signup/fonts/Philosopher-Regular.ttf">
+    <link href="~/Content/signup/fonts/TitilliumWeb-Regular.ttf">
+
+</head>
+<body>
+    @*<form class="form-login">*@
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {@Html.AntiForgeryToken()
+    <div class="text-danger" style="text-align:center;color:white">
+        @ViewBag.Message
+    </div>
+    <section class="agile-header">
+        <div class="agile-heading">
+            <h1><span class="image"></span>SIGNUP</h1>
+        </div>
+        <div class="agile-form">
+
+
+            <div class="agile-fname">
+                <p>first name</p>
+                <input type="text" name="username" id="username" placeholder="first name">
+                @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
+            </div>
+            <div class="agile-lname">
+                <p>last name</p>
+                <input type="text" name="FatherName" id="FatherName" placeholder="last name">
+                @Html.ValidationMessageFor(model => model.FatherName, "", new { @class = "text-danger" })
+            </div>
+            <div class="agile-email">
+                <p>Email</p>
+                <input type="email" name="Email" id="Email" placeholder="email-address" required="">
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="agile-password" style="margin: 7px;">
+                <p>password</p>
+                <input type="password" name="password" placeholder="password" id="pwd" class="field-icon" required="">
+                <div>
+                    <span class="glyphicon glyphicon-eye-open"></span>
+                    @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="agile-password">
+                <p>Mobile Number</p>
+                <input type="number" name="phone_no" id="phone_no" placeholder="Enter phone number" required="">
+                @Html.ValidationMessageFor(model => model.phone_no, "", new { @class = "text-danger" })
+            </div>
+            <div class="agile-password">
+                <p>Address</p>
+                <input type="text" name="address" id="address" placeholder="Enter Address" required="">
+                @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
+            </div>
+
+
+            <div class="agile-dob" id="role">
+                @Html.LabelFor(model => model.fk_role_id, "Role", htmlAttributes: new { @class = "control-label col-md-2" })
+
+                <div class="col-md-10">
+                    @Html.DropDownList("fk_role_id", null, "Please Select", htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.fk_role_id, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div name="getcities">
+                <div class="agile-dob">
+                    <p> City</p>
+                    <div class="col-md-10">
+                        <select id="city" name="fk_city_id" class="input-large" onchange="Getareas();">
+                            <option value="-1">Please select City</option>
+                            @foreach (var item in ViewBag.city)
+                            {
+                                <option value="@item.city_id">@item.city1</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <p>Area</p>
+                    <div class="controls">
+                        <select id="drparea" name="fk_area_id" class="input-large">
+                            @*<option value=""></option>*@
+
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clear"></div>
+            <div class="agile-gender" style="color:#ffffff" id="gender">
+                <p>Gender</p>
+                <div class="agile-mgender">
+                    <input type="radio" name="gender" id="gender" value="male">
+                    <span>male</span>
+                </div>
+                <div class="agile-fgender">
+                    <input type="radio" name="gender" id="gender" value="female">
+                    <span>female</span>
+                </div>
+                <div class="clear"></div>
+                @Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-danger" })
+            </div>
+
+
+
+
+            <div class="agile-submit">
+                <input type="submit" value="SignUp" id="btnPost" name="getcities">
+            </div>
+            <br />
+            <div class="newuser">
+                <p class="account">already have an account? <a class="link" href="@Url.Action("SignIn", "Login")"> login here</a></p>
+            </div>
+        </div>
+
+    </section>
+}
+    @* </form>*@
+
+</body>
+</html>
+
+<script>
+
+    $(document).ready(function () {
+
+    });
+
+
+
+    var Getareas = function () {
+
+        $('#drparea option').remove();
+
+        var selectedcity = $("#city :selected").text();
+        var selectedcityval = $("#city :selected").val();
+        $.get("/Login/GetAreasByCity", { cityid: selectedcityval }, function (data)
+        {
+            $("#drparea").html(data)
+            $('#drparea').append($('<option></option>').val('').text('- Please select -'));
+            $.each(data, function (index, value) {
+                $('#drparea').append('<option value="' + value.Area_id + '">' + value.area1 + '</options>');
+
+            });
+
+            $("#drparea").html()
+
+        });
+        //alert(selectedprovinceval);
+        $("#btnpost").click(function () {
+            var Signup = new Object();
+            Signup.FirstName = $("#username").text();
+            Signup.FatherName = $("#FatherName").text();
+            Signup.Email = $("#Email").text();
+            Signup.phone_no = $("#phone_no").text();
+            Signup.address = $("#address").text();
+            Signup.gender = $("#gender").text();
+            Signup.role = $("#role").val();
+            Signup.fk_city_id = selectedcityval;
+            Signup.fk_area_id = $("#drparea").val();
+
+            if (Signup != null)
+
+            $.ajax({
+
+                type: "POST",
+                url: '@Url.Action("SignUp","Login")',
+                data: Signup,
+               success: function (response) {
+                    if (response != null) {
+                        alert("city : " + response.city + ", area : " + response.area);
+                    }
+                    else {
+                        alert("Something went wrong");
+                    }
+                }, failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+
+        });
+    }
+
+
+    //function show() {
+    //    var p = document.getElementById('pwd');
+    //    p.setAttribute('type', 'text');
+    //}
+
+    //function hide() {
+    //    var p = document.getElementById('pwd');
+    //    p.setAttribute('type', 'password');
+    //}
+
+    //var pwShown = 0;
+
+    //document.getElementById("eye").addEventListener("click", function () {
+    //    if (pwShown == 0) {
+    //        pwShown = 1;
+    //        show();
+    //    } else {
+    //        pwShown = 0;
+    //        hide();
+    //    }
+    //}, false);
+    $(".glyphicon-eye-open").on("click", function () {
+        $(this).toggleClass("glyphicon-eye-close");
+        var type = $("#pwd").attr("type");
+        if (type == "text") {
+            $("#pwd").prop('type', 'password');
+        }
+        else {
+            $("#pwd").prop('type', 'text');
+        }
+    });
+
+</script>
+
+
+
+<style>
+    #eye {
+        width: 1.5%;
+        position: absolute;
+        left: 1215px;
+        top: 300px;
+        color: white;
+    }
+
+    .newuser {
+        background: none;
+        font-size: 10px;
+    }
+
+    .link {
+        background: none;
+        display: inline;
+        font-size: 16px;
+        color: #df4444;
+    }
+
+        .link:hover {
+            text-decoration: underline;
+            color: blue;
+        }
+
+            .link:hover:before {
+                text-decoration: none;
+            }
+
+    .account {
+        text-align: center;
+        font-size: 16px;
+    }
+    .agile-password {
+        position: relative;
+    }
+
+        .agile-password input[type="password"] {
+            padding-right: 30px
+        }
+
+        .agile-password .glyphicon {
+            right: 20px;
+            position: absolute;
+            top: 37px;
+        }
+</style>

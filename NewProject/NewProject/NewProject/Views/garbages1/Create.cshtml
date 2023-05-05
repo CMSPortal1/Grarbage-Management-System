@@ -1,0 +1,192 @@
+﻿@*@model NewProject.Models.garbage*@
+@model Garbage.Common.DTO.GarabgeRequestServiceDTO
+
+@{
+    ViewBag.Title = "Create";
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="header"> Garbage Detail</h2>
+<br />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+        @*   <div class="form-group">
+                @Html.LabelFor(model => model.fk_user_id, "UserName", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="form-control">
+                    @Html.DropDownList("fk_user_id", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.fk_user_id, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+        <div class="form-group" id="type">
+            <label class="control-label col-md-2" for="fk_garbageType"><b>Garbage Type</b></label>
+
+            <div class="form-control">
+                @Html.DropDownList("fk_garbageName", null, " Select Type", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.fk_garbage_type, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" id="hygiene">
+            <label class="control-label col-md-2" for="fk_garbageType"><b>Hygiene Level</b></label>
+            <br />
+            <div class="form-control">
+
+                <select name="Hygiene_Level" class="form-control">
+                    <option value="-1" label="Select Hygiene Level" selected="selected">Select Hygiene level </option>
+                    <option>Moderate</option>
+                    <option>High</option>
+                    <option>Low</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group" id="Comment">
+            <label class="control-label col-md-2" for="Comment"><b>Comment</b></label>
+
+            <div class="form-control">
+                @Html.EditorFor(model => model.Comment, new { htmlAttributes = new { @class = "form-control", @placeholder = "Add Description" } })
+                @Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="fk_garbageType"><b>Weight</b></label>
+            <div class="form-control">
+                <input class="form-control" type="number" name="Weight" id="weight" required />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="fk_garbageType" style="display:inline"><b>Estimated Cost</b></label>
+            <div class="form-control">
+                <span class="form-control" name="Cost" id="Cost" required> </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Submit" class="btn btn-success btn-sm" id="btn"
+                       onmouseover="OnMouseOver()"
+                       onmouseout=" OnMouseOut()"
+                       onclick="return ConfirmSubmit()" style="border-radius:20px; border-color:#d39e00; background-color:#d39e00;" />
+            </div>
+        </div>
+    </div>
+}
+
+
+
+<script>
+        $(document).ready(function () {
+
+    });
+    $("#weight").keyup(function () {
+        debugger;
+        var total = 0;
+        if (!isNaN(this.value) && this.value.length != 0) {
+
+            total = parseFloat(this.value)
+            total = total * 100;
+        }
+        $("#Cost").html(total.toFixed(2));
+        var price = total;
+
+        $("#btn").click(function () {
+            debugger;
+            var garbage = new Object();
+            garbage.fk_garbageType = $("#type").val();
+            garbage.Weight = $("#weight").val();
+            garbage.Cost = price;
+            garbage.Comment = $("#Comment").text();
+            garbage.Hygiene_level = $("#hygiene").text();
+            $.ajax({
+
+                type: "POST",
+                url: '@Url.Action("Create","garbages1")',
+                data: garbage,
+                success: function (response) {
+                    if (response != null) {
+                        alert("cost : " + response.Cost + ", weight : " + response.Weight);
+                    }
+                    else {
+                        alert("Something went wrong");
+                    }
+                }
+
+            });
+        });
+
+    });
+    document.getElementById("btn").onmouseover= function()
+    {
+
+        this.style.background = "black";
+        this.style.color = "white";
+    }
+    document.getElementById("btn").onmouseout = function ()
+    {
+
+        this.style.background = "#d39e00";
+        this.style.color = "white";
+    }
+
+    function ConfirmSubmit() {
+        if (confirm("Are you sure you want to submit"))
+        {
+
+            return true;
+            alert("you selected ok");
+
+        }
+        else
+        {
+            return false;
+            alert("you selected cancel");
+        }
+
+    }
+</script>
+<style>
+
+    .header {
+        font-style: normal;
+        font-family: initial;
+        font-weight: bolder;
+    }
+
+    .control-label {
+        font-size: 19px;
+        font-family: sans-serif;
+        font-style: normal;
+        font-weight: 300px;
+    }
+
+    .form-control {
+        border: 1px solid #d39e00;
+        color: #6c757d;
+        background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #d39e0069), to(#FFFFFF));
+        background: -moz-linear-gradient(top, #FFFFFF, #FFCEE7 1px, #FFFFFF 25px);
+        box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+        -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+        -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+    }
+</style>
+
+        @*//var weight = document.getElementById("weight");
+        //var cost = document.getElementById("Cost");
+        //weight.addEventListener("input", Calculate);
+        //debugger;
+        //function Calculate() {
+        //    var wt = parseFloat(weight.value) || 0;
+        //    wt = wt * 100;
+        //    cost.innerHTML = wt;
+        //    var price = cost.innerHTML;*@

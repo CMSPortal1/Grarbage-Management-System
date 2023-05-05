@@ -1,0 +1,427 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="smart_garbage_management_systemEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="add_Garbages" EntityType="Model.add_Garbage" />
+    <EntitySet Name="AddVehicles" EntityType="Model.AddVehicle" />
+    <EntitySet Name="areas" EntityType="Model.area" />
+    <EntitySet Name="cities" EntityType="Model.city" />
+    <EntitySet Name="Complaints" EntityType="Model.Complaint" />
+    <EntitySet Name="dumped_areas" EntityType="Model.dumped_area" />
+    <EntitySet Name="dumping_details" EntityType="Model.dumping_detail" />
+    <EntitySet Name="feedbacks" EntityType="Model.feedback" />
+    <EntitySet Name="garbages" EntityType="Model.garbage" />
+    <EntitySet Name="roles" EntityType="Model.role" />
+    <EntitySet Name="signups" EntityType="Model.signup" />
+    <EntitySet Name="vehiclesdetails" EntityType="Model.vehiclesdetail" />
+    <AssociationSet Name="FK_garbage_add_Garbage" Association="Model.FK_garbage_add_Garbage">
+      <End Role="add_Garbage" EntitySet="add_Garbages" />
+      <End Role="garbage" EntitySet="garbages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_vehiclesdetails_AddVehicle" Association="Model.FK_vehiclesdetails_AddVehicle">
+      <End Role="AddVehicle" EntitySet="AddVehicles" />
+      <End Role="vehiclesdetail" EntitySet="vehiclesdetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dumped_area_city" Association="Model.FK_dumped_area_city">
+      <End Role="city" EntitySet="cities" />
+      <End Role="dumped_area" EntitySet="dumped_areas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_vehiclesdetails_city" Association="Model.FK_vehiclesdetails_city">
+      <End Role="city" EntitySet="cities" />
+      <End Role="vehiclesdetail" EntitySet="vehiclesdetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Complaint_garbage" Association="Model.FK_Complaint_garbage">
+      <End Role="garbage" EntitySet="garbages" />
+      <End Role="Complaint" EntitySet="Complaints" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Complaint_signups" Association="Model.FK_Complaint_signups">
+      <End Role="signup" EntitySet="signups" />
+      <End Role="Complaint" EntitySet="Complaints" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dumping_detail_dumped_area" Association="Model.FK_dumping_detail_dumped_area">
+      <End Role="dumped_area" EntitySet="dumped_areas" />
+      <End Role="dumping_detail" EntitySet="dumping_details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dumping_detail_signups" Association="Model.FK_dumping_detail_signups">
+      <End Role="signup" EntitySet="signups" />
+      <End Role="dumping_detail" EntitySet="dumping_details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dumping_detail_vehiclesdetails" Association="Model.FK_dumping_detail_vehiclesdetails">
+      <End Role="vehiclesdetail" EntitySet="vehiclesdetails" />
+      <End Role="dumping_detail" EntitySet="dumping_details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_feedback_signups" Association="Model.FK_feedback_signups">
+      <End Role="signup" EntitySet="signups" />
+      <End Role="feedback" EntitySet="feedbacks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_garbage_signups" Association="Model.FK_garbage_signups">
+      <End Role="signup" EntitySet="signups" />
+      <End Role="garbage" EntitySet="garbages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_signups_roles" Association="Model.FK_signups_roles">
+      <End Role="role" EntitySet="roles" />
+      <End Role="signup" EntitySet="signups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_vehiclesdetails_signups" Association="Model.FK_vehiclesdetails_signups">
+      <End Role="signup" EntitySet="signups" />
+      <End Role="vehiclesdetail" EntitySet="vehiclesdetails" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="add_Garbage">
+    <Key>
+      <PropertyRef Name="G_id" />
+    </Key>
+    <Property Name="G_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="G_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Updated_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Created_By" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Updated_On" Type="DateTime" Precision="3" />
+    <Property Name="Created_on" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="garbages" Relationship="Model.FK_garbage_add_Garbage" FromRole="add_Garbage" ToRole="garbage" />
+  </EntityType>
+  <EntityType Name="AddVehicle">
+    <Key>
+      <PropertyRef Name="Vehicle" />
+    </Key>
+    <Property Name="Vehicle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="updatedtime" Type="DateTime" Precision="3" />
+    <Property Name="createdby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="updatedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="city" Type="Int32" />
+    <NavigationProperty Name="vehiclesdetails" Relationship="Model.FK_vehiclesdetails_AddVehicle" FromRole="AddVehicle" ToRole="vehiclesdetail" />
+  </EntityType>
+  <EntityType Name="area">
+    <Key>
+      <PropertyRef Name="Area_id" />
+    </Key>
+    <Property Name="Area_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="area1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="created_on" Type="DateTime" Precision="3" />
+    <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="updated_time" Type="DateTime" Precision="3" />
+    <Property Name="updated_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cityid" Type="Int32" />
+  </EntityType>
+  <EntityType Name="city">
+    <Key>
+      <PropertyRef Name="city_id" />
+    </Key>
+    <Property Name="city_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="city1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="updated_on" Type="DateTime" Precision="3" />
+    <Property Name="created_on" Type="DateTime" Precision="3" />
+    <Property Name="updated_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="dumped_area" Relationship="Model.FK_dumped_area_city" FromRole="city" ToRole="dumped_area" />
+    <NavigationProperty Name="vehiclesdetails" Relationship="Model.FK_vehiclesdetails_city" FromRole="city" ToRole="vehiclesdetail" />
+  </EntityType>
+  <EntityType Name="Complaint">
+    <Key>
+      <PropertyRef Name="Complaint_Id" />
+    </Key>
+    <Property Name="Complaint_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="Int32" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Entrydate" Type="DateTime" Precision="3" />
+    <Property Name="Completiondate" Type="DateTime" Precision="3" />
+    <Property Name="Created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Created_time" Type="DateTime" Precision="3" />
+    <Property Name="updated_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="updated_time" Type="DateTime" Precision="3" />
+    <Property Name="Mobile_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="garbage_id" Type="Int32" />
+    <Property Name="pending_at" Type="Int32" />
+    <Property Name="fk_city_id" Type="Int32" />
+    <Property Name="fk_area_id" Type="Int32" />
+    <NavigationProperty Name="garbage" Relationship="Model.FK_Complaint_garbage" FromRole="Complaint" ToRole="garbage" />
+    <NavigationProperty Name="signup" Relationship="Model.FK_Complaint_signups" FromRole="Complaint" ToRole="signup" />
+  </EntityType>
+  <EntityType Name="dumped_area">
+    <Key>
+      <PropertyRef Name="Dumping_id" />
+    </Key>
+    <Property Name="Dumping_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="source" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cityid_fk" Type="Int32" />
+    <Property Name="createdby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="updatedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createdtime" Type="DateTime" Precision="3" />
+    <Property Name="updatedtime" Type="DateTime" Precision="3" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="city" Relationship="Model.FK_dumped_area_city" FromRole="dumped_area" ToRole="city" />
+    <NavigationProperty Name="dumping_detail" Relationship="Model.FK_dumping_detail_dumped_area" FromRole="dumped_area" ToRole="dumping_detail" />
+  </EntityType>
+  <EntityType Name="dumping_detail">
+    <Key>
+      <PropertyRef Name="dump_area_id" />
+    </Key>
+    <Property Name="dump_area_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fk_name" Type="Int32" />
+    <Property Name="source_fk" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="destination_fk" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fk_city_id" Type="Int32" />
+    <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="updated_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="created_on" Type="DateTime" Precision="3" />
+    <Property Name="updated_time" Type="DateTime" Precision="3" />
+    <Property Name="fk_userid" Type="Int32" />
+    <Property Name="fk_area_id" Type="Int32" />
+    <NavigationProperty Name="dumped_area" Relationship="Model.FK_dumping_detail_dumped_area" FromRole="dumping_detail" ToRole="dumped_area" />
+    <NavigationProperty Name="signup" Relationship="Model.FK_dumping_detail_signups" FromRole="dumping_detail" ToRole="signup" />
+    <NavigationProperty Name="vehiclesdetail" Relationship="Model.FK_dumping_detail_vehiclesdetails" FromRole="dumping_detail" ToRole="vehiclesdetail" />
+  </EntityType>
+  <EntityType Name="feedback">
+    <Key>
+      <PropertyRef Name="FeedbackID" />
+    </Key>
+    <Property Name="FeedbackID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Review" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="rating" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="signup" Relationship="Model.FK_feedback_signups" FromRole="feedback" ToRole="signup" />
+  </EntityType>
+  <EntityType Name="garbage">
+    <Key>
+      <PropertyRef Name="garbage_id" />
+    </Key>
+    <Property Name="garbage_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fk_user_id" Type="Int32" Nullable="false" />
+    <Property Name="Hygiene_level" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Comment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="updated_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="created_on" Type="DateTime" Precision="3" />
+    <Property Name="updated_on" Type="DateTime" Precision="3" />
+    <Property Name="Cost" Type="Int32" />
+    <Property Name="Weight" Type="Int32" />
+    <Property Name="fk_garbage_type" Type="Int32" />
+    <NavigationProperty Name="add_Garbage" Relationship="Model.FK_garbage_add_Garbage" FromRole="garbage" ToRole="add_Garbage" />
+    <NavigationProperty Name="Complaints" Relationship="Model.FK_Complaint_garbage" FromRole="garbage" ToRole="Complaint" />
+    <NavigationProperty Name="signup" Relationship="Model.FK_garbage_signups" FromRole="garbage" ToRole="signup" />
+  </EntityType>
+  <EntityType Name="role">
+    <Key>
+      <PropertyRef Name="role_id" />
+    </Key>
+    <Property Name="role_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="updated_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="created_on" Type="DateTime" Precision="3" />
+    <Property Name="updated_on" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="signups" Relationship="Model.FK_signups_roles" FromRole="role" ToRole="signup" />
+  </EntityType>
+  <EntityType Name="signup">
+    <Key>
+      <PropertyRef Name="Signup_ID" />
+    </Key>
+    <Property Name="Signup_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fk_city_id" Type="Int32" />
+    <Property Name="fk_area_id" Type="Int32" />
+    <Property Name="fk_role_id" Type="Int32" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FatherName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="phone_no" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="updated_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="created_on" Type="DateTime" Precision="3" />
+    <Property Name="updated_on" Type="DateTime" Precision="3" />
+    <Property Name="image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="resetpassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Complaints" Relationship="Model.FK_Complaint_signups" FromRole="signup" ToRole="Complaint" />
+    <NavigationProperty Name="dumping_detail" Relationship="Model.FK_dumping_detail_signups" FromRole="signup" ToRole="dumping_detail" />
+    <NavigationProperty Name="feedbacks" Relationship="Model.FK_feedback_signups" FromRole="signup" ToRole="feedback" />
+    <NavigationProperty Name="garbages" Relationship="Model.FK_garbage_signups" FromRole="signup" ToRole="garbage" />
+    <NavigationProperty Name="role" Relationship="Model.FK_signups_roles" FromRole="signup" ToRole="role" />
+    <NavigationProperty Name="vehiclesdetails" Relationship="Model.FK_vehiclesdetails_signups" FromRole="signup" ToRole="vehiclesdetail" />
+  </EntityType>
+  <EntityType Name="vehiclesdetail">
+    <Key>
+      <PropertyRef Name="VehicleId" />
+    </Key>
+    <Property Name="VehicleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fk_Name" Type="Int32" />
+    <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fk_cityid" Type="Int32" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="Updatedtime" Type="DateTime" Precision="3" />
+    <Property Name="Createdby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="updatedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fk_userid" Type="Int32" />
+    <Property Name="fk_area_id" Type="Int32" />
+    <NavigationProperty Name="AddVehicle" Relationship="Model.FK_vehiclesdetails_AddVehicle" FromRole="vehiclesdetail" ToRole="AddVehicle" />
+    <NavigationProperty Name="city" Relationship="Model.FK_vehiclesdetails_city" FromRole="vehiclesdetail" ToRole="city" />
+    <NavigationProperty Name="dumping_detail" Relationship="Model.FK_dumping_detail_vehiclesdetails" FromRole="vehiclesdetail" ToRole="dumping_detail" />
+    <NavigationProperty Name="signup" Relationship="Model.FK_vehiclesdetails_signups" FromRole="vehiclesdetail" ToRole="signup" />
+  </EntityType>
+  <Association Name="FK_garbage_add_Garbage">
+    <End Type="Model.add_Garbage" Role="add_Garbage" Multiplicity="0..1" />
+    <End Type="Model.garbage" Role="garbage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="add_Garbage">
+        <PropertyRef Name="G_id" />
+      </Principal>
+      <Dependent Role="garbage">
+        <PropertyRef Name="fk_garbage_type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_vehiclesdetails_AddVehicle">
+    <End Type="Model.AddVehicle" Role="AddVehicle" Multiplicity="0..1" />
+    <End Type="Model.vehiclesdetail" Role="vehiclesdetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AddVehicle">
+        <PropertyRef Name="Vehicle" />
+      </Principal>
+      <Dependent Role="vehiclesdetail">
+        <PropertyRef Name="fk_Name" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dumped_area_city">
+    <End Type="Model.city" Role="city" Multiplicity="0..1" />
+    <End Type="Model.dumped_area" Role="dumped_area" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="city">
+        <PropertyRef Name="city_id" />
+      </Principal>
+      <Dependent Role="dumped_area">
+        <PropertyRef Name="cityid_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_vehiclesdetails_city">
+    <End Type="Model.city" Role="city" Multiplicity="0..1" />
+    <End Type="Model.vehiclesdetail" Role="vehiclesdetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="city">
+        <PropertyRef Name="city_id" />
+      </Principal>
+      <Dependent Role="vehiclesdetail">
+        <PropertyRef Name="fk_cityid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Complaint_garbage">
+    <End Type="Model.garbage" Role="garbage" Multiplicity="0..1" />
+    <End Type="Model.Complaint" Role="Complaint" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="garbage">
+        <PropertyRef Name="garbage_id" />
+      </Principal>
+      <Dependent Role="Complaint">
+        <PropertyRef Name="garbage_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Complaint_signups">
+    <End Type="Model.signup" Role="signup" Multiplicity="0..1" />
+    <End Type="Model.Complaint" Role="Complaint" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="signup">
+        <PropertyRef Name="Signup_ID" />
+      </Principal>
+      <Dependent Role="Complaint">
+        <PropertyRef Name="UserName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dumping_detail_dumped_area">
+    <End Type="Model.dumped_area" Role="dumped_area" Multiplicity="0..1" />
+    <End Type="Model.dumping_detail" Role="dumping_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dumped_area">
+        <PropertyRef Name="Dumping_id" />
+      </Principal>
+      <Dependent Role="dumping_detail">
+        <PropertyRef Name="fk_name" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dumping_detail_signups">
+    <End Type="Model.signup" Role="signup" Multiplicity="0..1" />
+    <End Type="Model.dumping_detail" Role="dumping_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="signup">
+        <PropertyRef Name="Signup_ID" />
+      </Principal>
+      <Dependent Role="dumping_detail">
+        <PropertyRef Name="fk_userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dumping_detail_vehiclesdetails">
+    <End Type="Model.vehiclesdetail" Role="vehiclesdetail" Multiplicity="0..1" />
+    <End Type="Model.dumping_detail" Role="dumping_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vehiclesdetail">
+        <PropertyRef Name="VehicleId" />
+      </Principal>
+      <Dependent Role="dumping_detail">
+        <PropertyRef Name="fk_city_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_feedback_signups">
+    <End Type="Model.signup" Role="signup" Multiplicity="0..1" />
+    <End Type="Model.feedback" Role="feedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="signup">
+        <PropertyRef Name="Signup_ID" />
+      </Principal>
+      <Dependent Role="feedback">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_garbage_signups">
+    <End Type="Model.signup" Role="signup" Multiplicity="1" />
+    <End Type="Model.garbage" Role="garbage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="signup">
+        <PropertyRef Name="Signup_ID" />
+      </Principal>
+      <Dependent Role="garbage">
+        <PropertyRef Name="fk_user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_signups_roles">
+    <End Type="Model.role" Role="role" Multiplicity="0..1" />
+    <End Type="Model.signup" Role="signup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="role">
+        <PropertyRef Name="role_id" />
+      </Principal>
+      <Dependent Role="signup">
+        <PropertyRef Name="fk_role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_vehiclesdetails_signups">
+    <End Type="Model.signup" Role="signup" Multiplicity="0..1" />
+    <End Type="Model.vehiclesdetail" Role="vehiclesdetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="signup">
+        <PropertyRef Name="Signup_ID" />
+      </Principal>
+      <Dependent Role="vehiclesdetail">
+        <PropertyRef Name="fk_userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

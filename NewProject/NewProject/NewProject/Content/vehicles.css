@@ -1,0 +1,49 @@
+
+
+    hr.type_7 {
+        border: 0;
+        height: 55px;
+        background-image: url(../../Content/images/type_7.png);
+        background-repeat: no-repeat;
+    }
+
+    .span4 {
+        text-transform: capitalize;
+        position: absolute;
+        left: 700px;
+    }
+
+    .span2 {
+        width: 50%;
+    }
+
+    img {
+        position: relative;
+        left: 20px;
+        max-width: 60%;
+    }
+
+
+    .font {
+        font-family: 'Comic Sans MS';
+    }
+
+    .style {
+        font-family: sans-serif;
+    }
+
+    .image {
+        border: 1px ridge #d39e00;
+        color: #6c757d;
+        background: -webkit-gradient(linear, left top, left 25, from(#ffffff), color-stop(4%, #d39e0069), to(#ffffff));
+        background: -moz-linear-gradient(top, #ffffff, #ffcee7 1px, #ffffff 25px);
+        box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+        -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+        -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+        height: 200px;
+        width: 300px;
+    }
+
+    .ti-check-box, .fa-truck {
+        color: forestgreen;
+    }

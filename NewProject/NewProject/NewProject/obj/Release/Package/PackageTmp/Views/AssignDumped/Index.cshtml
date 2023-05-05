@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Garbage.Common.DTO.AssignDumpedAreaDTO>
+@{
+    ViewBag.Title = "AssignDumped";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AssignDumped</h2>
+
+<div class="card-header">
+    <strong class="card-title">Status Table</strong>
+</div>
+<div class="card-body">
+
+</div><div class="row">
+    <div class="col-sm-12">
+        <table id="bootstrap-data-table" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="bootstrap-data-table_info">
+            <thead>
+                <tr style="background-color:#d39e00">
+
+                    <th>
+                        UserName
+                    </th>
+                    <th>
+                        Source
+                    </th>
+                    <th>
+                        Destination
+                    </th>
+                    <th>
+                        City
+                    </th>
+
+
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        @ViewBag.fk_user_id
+                    </td>
+                    @*<td>
+            @Html.DisplayFor(modelItem => item.dumped_area.source)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.signup.address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dumped_area.cityid_fk)
+        </td>*@
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.dump_area_id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.dump_area_id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.dump_area_id })
+                    </td>
+                </tr>
+                }
+
+            <tbody>
+
+        </table>
+    </div>
+</div>
